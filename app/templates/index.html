@@ -1,0 +1,63 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro %}
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <h1>Get the latest news from the most trusted sources</h1>
+    </div>
+</div>
+
+
+<!-- homepage section -->
+<div class="container wrapper scroll">
+    <div class="row" id="general">
+        <div class="category col-md-12">
+            <h4 class="source_title">General News</h4>
+            <ul>
+                {{macro.displayNewsourceList(general)}}
+            </ul>
+        </div>
+    </div>
+    <div class="row" id="business">
+        <div class="category col-md-12">
+            <h4 class="source_title">Business</h4>
+            <ul>
+                {{macro.displayNewsourceList(business)}}
+            </ul>
+        </div>
+    </div>
+    <div class="row" id="technology">
+        <div class="category col-md-12">
+            <h4 class="source_title">Technology</h4>
+            <ul>
+                {{macro.displayNewsourceList(technology)}}
+            </ul>
+        </div>
+    </div>
+    <div class="row" id="sports">
+        <div class="category col-md-12">
+            <h4 class="source_title">Sports</h4>
+            <ul>
+                {{macro.displayNewsourceList(sports)}}
+            </ul>
+        </div>
+    </div>
+    <div class="row" id="entertainment">
+        <div class="category col-md-12">
+            <h4 class="source_title">Entertainment</h4>
+            <ul>
+                {{macro.displayNewsourceList(entertainment)}}
+            </ul>
+        </div>
+    </div>
+    <div class="row" id="science">
+        <div class="category col-md-12">
+            <h4 class="source_title">Science</h4>
+            <ul>
+                {{macro.displayNewsourceList(science)}}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock%}
