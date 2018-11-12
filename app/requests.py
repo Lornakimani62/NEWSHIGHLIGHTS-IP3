@@ -5,8 +5,9 @@ from .models import Article
 
 # Getting api key
 api_key = None
-# Getting the Headline url
+# Getting the Category url
 sources_url = None
+# Getting the Headline url
 Headline_url = None
 #Getting the Everything url
 Everything_url = None
@@ -23,11 +24,11 @@ def configure_request(app):
     Everything_url=app.config['EVERYTHING_BASE_URL']
     search_url = app.config["SEARCH_API_BASE_URL"]
 
-def get_newsource(source):
+def get_newsource(category):
     '''
     Function that gets the json response to our url request
     '''
-    get_newsource_url = sources_url.format(api_key)
+    get_newsource_url = sources_url.format(category,api_key)
 
     with urllib.request.urlopen(get_newsource_url) as url:
         get_newsource_data = url.read()

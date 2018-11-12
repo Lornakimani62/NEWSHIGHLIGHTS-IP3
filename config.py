@@ -5,7 +5,7 @@ class Config:
     General configuration parent class
     '''
 
-    SOURCES_BASE_URL='https://newsapi.org/v2/sources?apiKey={}'
+    SOURCES_BASE_URL='https://newsapi.org/v2/sources?language=en&category={}&apiKey={}'
     HEADLINE_BASE_URL='https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'
     EVERYTHING_BASE_URL='https://newsapi.org/v2/everything?&sortBy=publishedAt&sources={}&apiKey={}'
     SEARCH_API_BASE_URL = 'https://newsapi.org/v2/everything?language=en&q={}&apiKey={}'
