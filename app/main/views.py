@@ -1,7 +1,7 @@
 from flask import render_template,request,redirect,url_for
 from . import main
-from ..requests import get_newsource
-from ..models import Source
+from ..requests import get_newsource,get_articles
+from ..models import Source,Article
 
 # Views
 @main.route('/')
@@ -19,3 +19,14 @@ def index():
     science_newsource = get_newsource('science')
 
     return render_template('index.html',general = general_newsource, technology = technology_newsource, entertainment = entertainment_newsource, sports = sports_newsource, business= business_newsource, science = science_newsource)
+
+@main.route('/articles/<source_id>')
+def articles(source_id):
+    '''
+    View article page function returns the articles based on a new source
+    '''
+
+    #Getting articles
+    article_source = get_articles(source_id)
+
+    return render_template('article.html', title=title, name = source_id, articles = article_source)
