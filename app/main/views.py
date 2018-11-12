@@ -11,8 +11,8 @@ def index():
     '''
     #Getting news sources
     general_newsource = get_newsource('general')
-        technology_newsource = get_newsource('technology')
+    technology_newsource = get_newsource('technology')
     entertainment_newsource = get_newsource('entertainment')
     sports_newsource = get_newsource('sports')
 
-    return render_template('index.html',general = general_newsource,general = general_newsource, technology = technology_newsource, entertainment = entertainment_newsource, sports = sports_newsource)
+    return render_template('index.html',general = general_newsource, technology = technology_newsource, entertainment = entertainment_newsource, sports = sports_newsource)
