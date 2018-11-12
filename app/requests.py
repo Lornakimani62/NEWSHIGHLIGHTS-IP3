@@ -6,6 +6,7 @@ from .models import Article
 # Getting api key
 api_key = None
 # Getting the Headline url
+sources_url = None
 Headline_url = None
 #Getting the Everything url
 Everything_url = None
@@ -15,22 +16,24 @@ search_url = None
 
 
 def configure_request(app):
-    global api_key,Everything_url,Headline_url
+    global api_key,Everything_url,Headline_url, sources_url
     api_key = app.config['NEWS_API_KEY']
+    sources_url = app.config['SOURCES_BASE_URL']
     Headline_url = app.config['HEADLINE_BASE_URL']
     Everything_url=app.config['EVERYTHING_BASE_URL']
     search_url = app.config["SEARCH_API_BASE_URL"]
 
-def get_newsource(category):
+def get_newsource(source):
     '''
     Function that gets the json response to our url request
     '''
-    get_newsource_url = Everything_url.format(category,api_key)
-    print(get_newsource_url)
+    get_newsource_url = sources_url.format(api_key)
 
     with urllib.request.urlopen(get_newsource_url) as url:
         get_newsource_data = url.read()
         get_newsource_response = json.loads(get_newsource_data)
+
+        print(get_newsource_response)
 
         newsource_results = None
 
@@ -52,11 +55,12 @@ def process_results(newsource_list):
     newsource_results = []
     for news_item in newsource_list:
         id = news_item.get('id')
-        name = news_item.get('name')
+        name = news_item.get('title')
+        title = news_item.get('name')
         description = news_item.get('description')
         url = news_item.get('url')
 
-        newsource_object = Source(id,name,description,url)
+        newsource_object = Source(id,title,name,description,url)
         newsource_results.append(newsource_object)
 
     return newsource_results
