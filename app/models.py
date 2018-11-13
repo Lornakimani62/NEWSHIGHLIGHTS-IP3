@@ -20,8 +20,7 @@ class Article:
     '''
 
 
-    def __init__(self,id,name,title,description,url,urlToImage):
-        self.id =id
+    def __init__(self,title,description,url,urlToImage):
         self.title = title
         self.description = description
         self.url = url
