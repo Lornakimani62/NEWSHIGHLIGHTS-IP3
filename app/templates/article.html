@@ -3,10 +3,10 @@
 
 <!-- Body Section -->
 <div class="container wrapper">
-    <div class="row text">
+    <div class="row">
         {% for article in articles%}
-        <div class="col-sm-6 col-md-4">
-            <div class="card article">
+        <div class="col-sm-6 d-flex mb-3">
+            <div class="card border-dark flex-fill">
                 <a href="{{article.url}}" target="_blank">
                     <img class="card-img-top" src="{{article.urlToImage}}" alt="Image of {{article.title}}">
                 </a>
