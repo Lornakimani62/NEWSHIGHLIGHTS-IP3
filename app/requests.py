@@ -6,8 +6,6 @@ from .models import Article
 api_key = None
 # Getting the Category url
 sources_url = None
-# Getting the Headline url
-Headline_url = None
 #Getting the Article url
 everything_url = None
 #Search url
@@ -16,7 +14,7 @@ search_url = None
 
 
 def configure_request(app):
-    global api_key,everything_url,search_url,sources_url,Headline_url
+    global api_key,everything_url,search_url,sources_url
     api_key = app.config['NEWS_API_KEY']
     sources_url = app.config['SOURCES_BASE_URL']
     Headline_url = app.config['HEADLINE_BASE_URL']
