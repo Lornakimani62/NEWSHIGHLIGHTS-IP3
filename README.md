@@ -2,7 +2,7 @@
 ## Description
 This application lists and previews news articles from various sources.   
 ## Link to Deployed site
-Here is the a link to the application (https://lornanewshighlights.herokuapp.com/)
+Here is the a link to the application https://lornanewshighlights.herokuapp.com/
 
 # Setup and installations
 ## Prerequisites
