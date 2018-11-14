@@ -1,8 +1,8 @@
 # Newshighlights
 ## Description
-This application create  that lists and preview news articles from various sources.   
+This application lists and previews news articles from various sources.   
 ## Link to Deployed site
-Here is the a link to the application
+Here is the a link to the application (https://lornanewshighlights.herokuapp.com/)
 
 # Setup and installations
 ## Prerequisites
