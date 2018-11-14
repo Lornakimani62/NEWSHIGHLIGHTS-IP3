@@ -1,6 +1,6 @@
 from flask import render_template,request,redirect,url_for
 from . import main
-from ..requests import get_newsource,get_articles
+from ..requests import get_newsource,get_articles,search_article
 from ..models import Source,Article
 
 # Views
@@ -30,9 +30,11 @@ def articles(source_id):
     article = get_articles(source_id)
     title = f'{source_id}'
     
-
-
-    return render_template('article.html', title=title,articles=article)
+    search_article = request.args.get('article_query')
+    if search_article:
+        return redirect(url_for('.search',article_name=search_article))
+    else:
+        return render_template('article.html', title=title,articles=article)
 
 @main.route('/search/<article_name>')
 def search(article_name):
@@ -43,5 +45,7 @@ def search(article_name):
     article_name_format = "+".join(article_name_list)
     searched_articles = search_article(article_name_format)
     title = f'search results for {article_name}'
+      
+    search_article = request.args.get('article_query')
 
     return render_template('search.html', articles = searched_articles)
