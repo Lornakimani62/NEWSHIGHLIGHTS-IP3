@@ -46,6 +46,4 @@ def search(article_name):
     searched_articles = search_article(article_name_format)
     title = f'search results for {article_name}'
       
-    search_article = request.args.get('article_query')
-
-    return render_template('search.html', articles = searched_articles)
+    return render_template('search.html',articles=searched_articles)

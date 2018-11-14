@@ -21,7 +21,7 @@ def configure_request(app):
     sources_url = app.config['SOURCES_BASE_URL']
     Headline_url = app.config['HEADLINE_BASE_URL']
     everything_url=app.config['EVERYTHING_BASE_URL']
-    search_url = app.config["SEARCH_API_BASE_URL"]
+    search_url=app.config["SEARCH_API_BASE_URL"]
 
 def get_newsource(category):
     '''
@@ -114,6 +114,7 @@ def search_article(article_name):
     with urllib.request.urlopen(get_search_url) as url:
         search_article_data = url.read()
         search_article_response = json.loads(search_article_data)
+        print (search_article_response)
 
         search_article_results = None
 
